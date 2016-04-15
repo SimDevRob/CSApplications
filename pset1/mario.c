@@ -12,7 +12,7 @@ int main(void)
     //declare vars
     int height = 0;
 
-    //ask user for positive integer less than 23 and check input
+    //ask user for non-negative integer less than 23 and check input
     do 
     {
       printf("height: ");
