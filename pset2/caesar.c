@@ -1,8 +1,8 @@
 /**
- *   Hail Ceaser!! by simdevrob(gmail.com)
+ *   Hail Caesar!! by simdevrob(gmail.com)
  * 
  *  This is a basic encryption application in C
- *  using the Ceaser Cypher.
+ *  using the Ceaser Cipher.
  * 
  *  It requires a a non negative integer 
  *  command line argument. The user is then
@@ -21,9 +21,9 @@
 
 // function declars
 /**
- *  CypherASCII requires quoted 'char' for arg[0, 1, 2, 3, 4] and rotation int. 
+ *  CipherASCII requires quoted 'char' for arg[0, 1, 2, 3, 4] and rotation int. 
  */
-char CypherASCII( int lowest_upper_char, int highest_upper_char, int lowest_lower_char, int highest_lower_char, int acsii_char, int rot) 
+char CipherASCII( int lowest_upper_char, int highest_upper_char, int lowest_lower_char, int highest_lower_char, int acsii_char, int rot) 
             {
                 // if char is uppercase then encrypt
                 if ( acsii_char >= lowest_upper_char && acsii_char <= highest_upper_char )
@@ -35,8 +35,8 @@ char CypherASCII( int lowest_upper_char, int highest_upper_char, int lowest_lowe
                     {
                         acsii_char = acsii_char - 26;
                     };
-                     char cypher_char = acsii_char;
-                     return cypher_char;
+                     char cipher_char = acsii_char;
+                     return cipher_char;
                 } 
                 
                 // if char is lowercase ..
@@ -50,15 +50,15 @@ char CypherASCII( int lowest_upper_char, int highest_upper_char, int lowest_lowe
                     {
                         acsii_char = acsii_char - 26;
                     };
-                    char cypher_char = acsii_char;
-                    return cypher_char;
+                    char cipher_char = acsii_char;
+                    return cipher_char;
         } 
         
         // if char is not an Alpha let it through
         else 
         {
-            char cypher_char = acsii_char;
-            return cypher_char;
+            char cipher_char = acsii_char;
+            return cipher_char;
         };
     };
     
@@ -92,7 +92,7 @@ int main(int argc, string argv[])
     // itterates through string and finds int for each char
     for (int i = 0, n = strlen(user_string); i < n; i++)
     {
-        char display_char = CypherASCII('A', 'Z', 'a', 'z', user_string[i], rot_int);
+        char display_char = CipherASCII('A', 'Z', 'a', 'z', user_string[i], rot_int);
         printf("%c", display_char);
     };
     printf("\n");
