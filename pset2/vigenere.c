@@ -2,9 +2,9 @@
  * Vigenère’s Cipher by simdevrob(gmail.com)
  * v 1.1 - 04-17-2016
  * 
- * A command line encrypter-cipher that requires an alphabetical
- * phrase key and uses it to encrypt a string provided by user after
- * initialization.
+ * A command-line encrypter-cipher that requires an alphabetical-only
+ * command-line argument called a Passphrase and uses it to encrypt a string
+ * provided by user after initialization.
  * 
  * To use: 
  *   * compile
@@ -31,18 +31,17 @@
 #include <string.h>
 
 // function declarations
-
 int rot_index();
 char VigenereASCII();
 
 int main(int argc, string argv[])
 {
    
-    // set public vars
+    // initialize public vars
     string user_string = NULL;
     int error = 0;
 
-    // check and validate command line argument
+    // check and validate command-line argument
     if (argc == 2)
     {
         for (int i = 0, n = strlen(argv[1]); i < n; i++)  
@@ -187,4 +186,3 @@ char VigenereASCII( int lowest_upper_char, int highest_upper_char, int lowest_lo
         return cipher_char;
     };
 };
- 

@@ -2,9 +2,8 @@
  *   Hail Caesar!! by simdevrob(gmail.com)
  *   v1.0 - 04-17-2016
  * 
- * A command line encrypter-cipher that requires an int command line argument
- * and uses it to encrypt a string provided by user after
- * initialization.
+ * A command-line cipher-encrypter that requires an integer command-line argument
+ * and uses it to encrypt a string provided by user after initialization.
  * 
  * To use: 
  *   * compile
@@ -41,7 +40,7 @@ int main(int argc, string argv[])
     int rot_int;
     string user_string;
     
-    // check command line argument and set vars
+    // check command-line argument and set vars
     if (argc == 2)
     {
         rot_int = atoi(argv[1]) % 26;
@@ -55,7 +54,7 @@ int main(int argc, string argv[])
     }
     else
     {
-        // Yells at user if command line int is not provided
+        // Yells at user if command-line int is not provided
         printf("Please provide a non-negative int!\n");    
         return 1;
     };
