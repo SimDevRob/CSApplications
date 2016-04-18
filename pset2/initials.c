@@ -1,9 +1,12 @@
 /**
-*  Finds and displays the initial letter 
-*  and the letters following a space from 
-*  user input and displays them together
-*  in uppercase. 
-*/
+ *  Initials by simdevrob(gmail.com)
+ *  v1.0 - 04-17-2016
+ * 
+ *  Finds and displays the initial letter 
+ *  and the letters following a space from 
+ *  user input and displays them together
+ *  in uppercase. 
+ */
 
 // includes
 #include <cs50.h>

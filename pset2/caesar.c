@@ -1,15 +1,27 @@
 /**
  *   Hail Caesar!! by simdevrob(gmail.com)
+ *   v1.0 - 04-17-2016
  * 
- *  This is a basic encryption application in C
- *  using the Ceaser Cipher.
+ * A command line encrypter-cipher that requires an int command line argument
+ * and uses it to encrypt a string provided by user after
+ * initialization.
  * 
- *  It requires a a non negative integer 
- *  command line argument. The user is then
- *  asked for a string.
+ * To use: 
+ *   * compile
+ *   * execute initialization with argument.
  * 
- *  The output will be a "rotation" on each char
- *  of the string. 
+ * Initialization command example:
+ * 
+ *     $./a.out 13 
+ *
+ * User is then prompted for a string that will be encrypted. The cipher will
+ * display the "encrypted string" and then exit with a return int of 0 if no errors
+ * where thrown.
+ * 
+ * Return 0 - No Errors
+ * Return 1 - Problem validating commmand argument 
+ * 
+ * 
  */
  
 // includes
@@ -20,6 +32,45 @@
 #include <ctype.h>
 
 // function declars
+char CipherASCII();
+
+// run main routine    
+int main(int argc, string argv[])
+{
+    // declare vars
+    int rot_int;
+    string user_string;
+    
+    // check command line argument and set vars
+    if (argc == 2)
+    {
+        rot_int = atoi(argv[1]) % 26;
+       
+        // ask for string from user and checks for input
+        do
+        {
+            user_string = GetString();
+        }
+        while(strlen(user_string) == 0);
+    }
+    else
+    {
+        // Yells at user if command line int is not provided
+        printf("Please provide a non-negative int!\n");    
+        return 1;
+    };
+    
+    // itterates through string and finds int for each char
+    for (int i = 0, n = strlen(user_string); i < n; i++)
+    {
+        char display_char = CipherASCII('A', 'Z', 'a', 'z', user_string[i], rot_int);
+        printf("%c", display_char);
+    };
+    printf("\n");
+    return 0;
+}
+
+// define local functions
 /**
  *  CipherASCII requires quoted 'char' for arg[0, 1, 2, 3, 4] and rotation int. 
  */
@@ -63,38 +114,3 @@ char CipherASCII( int lowest_upper_char, int highest_upper_char, int lowest_lowe
     };
     
     
-// run main routine    
-int main(int argc, string argv[])
-{
-    // declare vars
-    int rot_int;
-    string user_string;
-    
-    // check command line argument and set vars
-    if (argc == 2)
-    {
-        rot_int = atoi(argv[1]) % 26;
-       
-        // ask for string from user and checks for input
-        do
-        {
-            user_string = GetString();
-        }
-        while(strlen(user_string) == 0);
-    }
-    else
-    {
-        // Yells at user if command line int is not provided
-        printf("Please provide a non-negative int!\n");    
-        return 1;
-    };
-    
-    // itterates through string and finds int for each char
-    for (int i = 0, n = strlen(user_string); i < n; i++)
-    {
-        char display_char = CipherASCII('A', 'Z', 'a', 'z', user_string[i], rot_int);
-        printf("%c", display_char);
-    };
-    printf("\n");
-    return 0;
-}

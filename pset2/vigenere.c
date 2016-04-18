@@ -1,6 +1,6 @@
 /**
  * Vigenère’s Cipher by simdevrob(gmail.com)
- * v 1.1
+ * v 1.1 - 04-17-2016
  * 
  * A command line encrypter-cipher that requires an alphabetical
  * phrase key and uses it to encrypt a string provided by user after
@@ -42,15 +42,14 @@ int main(int argc, string argv[])
     string user_string = NULL;
     int error = 0;
 
-    // check for command line argument and set vars
+    // check and validate command line argument
     if (argc == 2)
     {
         for (int i = 0, n = strlen(argv[1]); i < n; i++)  
         
-        // check and set pass_phrase
+        // throw error if passphrase char is not alphabetical
         if ( !isalpha(argv[1][i]) )
         {
-       
             printf("Alphabetical Only, Please!\n");
             error = 1;
         };
@@ -115,6 +114,7 @@ int main(int argc, string argv[])
             }
         }
     };
+    // if no error rotate user_string chars
     if (error != 0)
     {
         return error;
